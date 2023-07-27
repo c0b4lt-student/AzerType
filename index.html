@@ -5,9 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="azertype.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/popup.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/azertype.js" defer></script>
 </head>
 <body>
+<header>
+    <h1>AzerType</h1>
+    <h2>An app to improve typing</h2>
+    <h3>AzerType is a free online app to improve wtyping faster ;)</h3>
+</header>
 
+<main>
+    <div class="optionArea">
+        <p>Choose your options</p>
+        <div class="optionRadio">
+            <input type="radio" name="menuRadio" id="words" value="0" checked />
+            <label for="words">Words</label>
+            <input type="radio" name="menuRadio" id="sentences" value="1" />
+            <label for="sentences">Sentences</label>
+        </div>
+    </div>
+
+    <div class="wordToTypeArea">
+        AzerType
+    </div>
+
+    <div class="guessArea">
+        <input type="text" id="guessInput" name="guessInput" />
+        <button id="validateWordBtn">Validate</button>
+    </div>
+
+    <div class="scoreArea">
+        Your score : <span>0</span>
+    </div>
+
+    <div class="shareArea">
+        <button>Share</button>
+    </div>
+</main>
+<footer>
+    @Copyright Cturgis
+</footer>
+
+<div class="popupBackground">
+    <div class="popup">
+        <div>Share your score</div>
+        <form novalidate>
+            <label for="name">your name</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+            <label for="email">Who you want to share with ?</label>
+            <input type="email" id="email" name="email" placeholder="nom@domaine.com">
+            <button id="sendMailButton">Envoyer</button>
+        </form>
+    </div>
+</div>
 </body>
+
 </html>
