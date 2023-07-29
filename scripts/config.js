@@ -1,24 +1,5 @@
 const wordDictionary = [
-  "apple",
-  "banana",
   "car",
-  "dog",
-  "elephant",
-  "fish",
-  "guitar",
-  "house",
-  "ice cream",
-  "jungle",
-  "kiwi",
-  "lemon",
-  "monkey",
-  "night",
-  "orange",
-  "pear",
-  "queen",
-  "rainbow",
-  "sun",
-  "tree",
 ]
 const sentenceDictionary = ["Bonjour, comment ça va ?",
   "Le soleil brille aujourd'hui.",
@@ -40,7 +21,23 @@ const sentenceDictionary = ["Bonjour, comment ça va ?",
   "Il est important de rêver grand.",
   "La gentillesse fait du monde un meilleur endroit.",
   "La patience est une vertu essentielle."]
-const dictionaries = [wordDictionary, sentenceDictionary];
+const loveDictionary = [
+  "Bien",
+  "joué",
+  "je",
+  "t'aime",
+  "mon",
+  "amour",
+  "de",
+  "ma",
+  "vie",
+  "koeur",
+  "coeur",
+  "<3",
+  "keur",
+  "love",
+];
+const dictionaries = [wordDictionary, sentenceDictionary, loveDictionary];
 
 let user = {
   word: "",
@@ -50,8 +47,11 @@ let user = {
 };
 let dictionary = dictionaries[0];
 let index = 0;
+let isGameOver = false;
 
 let validateWordBtn = document.getElementById("validateWordBtn");
 let radioList = document.querySelectorAll(".optionRadio input");
 let guessArea = document.querySelector(".guessArea input");
 let timerArea = document.querySelector(".timerArea span");
+let loveRadio = document.querySelector(".loveRadio");
+let loveLabel = document.querySelector(".loveLabel");

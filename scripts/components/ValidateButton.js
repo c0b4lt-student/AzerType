@@ -4,9 +4,15 @@
 function is_gameOver() {
   if (dictionary[index] === undefined) {
     stopTimer();
-    printScreen("Game is over");
+    printScreen("Game is over look for secret option");
     validateWordBtn.disabled = true;
     guessArea.disabled = true;
+    if (!isGameOver) {
+      activateSecretMode();
+    } else {
+      loveRadio.disabled = true;
+      printScreen("JE T'AIME");
+    }
   } else {
     printScreen(dictionary[index]);
   }
@@ -35,7 +41,5 @@ function activateValidateButton() {
       isTimerStart = true;
     }
     handleValidateButton();
-    if (index > 0)
-      disableRadioList(radioList);
   });
 }

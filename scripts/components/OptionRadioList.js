@@ -17,6 +17,20 @@ function activateOptionRadioList() {
     radioList[i].addEventListener("click", (e) => {
       dictionary = dictionaries[Number(e.target.value)];
       printScreen(dictionary[index]);
+      if (e.target.value === "2") {
+        guessArea.disabled = false;
+        validateWordBtn.disabled = false;
+        resetTimer();
+      }
     });
   }
+}
+
+function activateSecretMode() {
+  isGameOver = true;
+  loveRadio.classList.remove("d-none");
+  loveLabel.classList.remove("d-none");
+  index = 0;
+  disableRadioList(radioList);
+  radioList[2].disabled = false;
 }

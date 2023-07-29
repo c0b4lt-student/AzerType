@@ -37,6 +37,12 @@ function startTimer() {
   }
 }
 
+function resetTimer() {
+  clearInterval(timer);
+  [milliseconds,seconds,minutes] = [0,0,0,0];
+  timerArea.innerHTML = `00 : 00 : 00 : 000`;
+}
+
 /**
  * Arrete le timer
  */
