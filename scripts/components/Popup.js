@@ -30,7 +30,7 @@ function cacherPopup() {
  * l'affichage de la popup.
  */
 function initAddEventListenerPopup() {
-  shareBtn = document.querySelector(".shareArea button");
+  let shareBtn = document.querySelector(".shareArea button");
   let popupBackground = document.querySelector(".popupBackground");
   shareBtn.addEventListener("click", () => {
     afficherPopup();

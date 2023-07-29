@@ -48,7 +48,10 @@ let user = {
   mode: -1,
   isPlaying: true
 };
+let dictionary = dictionaries[0];
+let index = 0;
 
 let validateWordBtn = document.getElementById("validateWordBtn");
-let radioList = document.querySelector(".optionRadio input");
-let userWord = document.querySelector(".guessArea input");
+let radioList = document.querySelectorAll(".optionRadio input");
+let guessArea = document.querySelector(".guessArea input");
+let timerArea = document.querySelector(".timerArea span");
