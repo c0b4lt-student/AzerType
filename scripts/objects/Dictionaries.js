@@ -243,4 +243,3 @@ function shuffleAndFilterDictionary(dictionary) {
 }
 
 let dictionary = shuffleAndFilterDictionary(dictionaries[0]);
-console.log(dictionary);

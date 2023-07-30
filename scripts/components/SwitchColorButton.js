@@ -1,4 +1,4 @@
-let switchColorButtonContainer = document.createElement("div");
+let switchColorButtonContainer = document.createElement("MySwitchButton");
 let switchColorButton = `
 <p>LightMode</p>
 <label class="switch">
