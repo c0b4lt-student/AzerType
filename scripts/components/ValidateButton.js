@@ -4,14 +4,11 @@
 function is_gameOver() {
   if (dictionary[index] === undefined) {
     stopTimer();
-    printScreen("Game is over look for secret option");
-    validateWordBtn.disabled = true;
+    printScreen("Game is over");
     guessArea.disabled = true;
+    activatePlayAgainButton();
     if (!isGameOver) {
       activateSecretMode();
-    } else {
-      loveRadio.disabled = true;
-      printScreen("JE T'AIME");
     }
   } else {
     printScreen(dictionary[index]);
@@ -22,6 +19,10 @@ function is_gameOver() {
  * Verifie les mots et verifie si la partie est finie
  */
 function handleValidateButton() {
+  if (!isTimerStart) {
+    startTimer();
+    isTimerStart = true;
+  }
   if (guessArea.value === dictionary[index]) {
     user.score++;
     index++;
@@ -35,11 +36,24 @@ function handleValidateButton() {
  * Lors d'un clique, start the timer and check if player wins
  */
 function activateValidateButton() {
-  validateWordBtn.addEventListener("click", () => {
-    if (!isTimerStart) {
-      startTimer();
-      isTimerStart = true;
-    }
-    handleValidateButton();
-  });
+  validateWordBtn.innerText = "Validate";
+  validateWordBtn.removeEventListener("click", handlePlayAgainButton)
+  validateWordBtn.addEventListener("click", handleValidateButton);
+}
+
+function handlePlayAgainButton() {
+  dictionary = shuffleAndFilterDictionary(dictionaries[user.mode]);
+  guessArea.disabled = false;
+  validateWordBtn.disabled = false;
+  isGameOver = false;
+  enableRadioList(radioList);
+  activateValidateButton();
+  printScreen(dictionary[0]);
+  resetTimer();
+}
+
+function activatePlayAgainButton() {
+  validateWordBtn.innerText = "Play again ?";
+  validateWordBtn.removeEventListener("click", handleValidateButton);
+  validateWordBtn.addEventListener("click", handlePlayAgainButton);
 }

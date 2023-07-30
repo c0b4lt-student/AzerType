@@ -8,6 +8,12 @@ function disableRadioList(radioList) {
   }
 }
 
+function enableRadioList(radioList) {
+  for (let i = 0; i < radioList.length; i++) {
+    radioList[i].disabled = false;
+  }
+}
+
 /**
  * Ajoute l'evenement "click" sur les options
  * Change le dictionaire en fonction de l'option activé
@@ -15,13 +21,9 @@ function disableRadioList(radioList) {
 function activateOptionRadioList() {
   for (let i = 0; i < radioList.length; i++) {
     radioList[i].addEventListener("click", (e) => {
-      dictionary = dictionaries[Number(e.target.value)];
+      user.mode = e.target.value;
+      dictionary = shuffleAndFilterDictionary(dictionaries[Number(e.target.value)]);
       printScreen(dictionary[index]);
-      if (e.target.value === "2") {
-        guessArea.disabled = false;
-        validateWordBtn.disabled = false;
-        resetTimer();
-      }
     });
   }
 }
