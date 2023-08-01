@@ -7,16 +7,18 @@
 
 
 /**
- * Cette fonction affiche la popup pour partager son score.
+ * Displays the popup for sharing the score.
+ * It adds the "active" class to the popupBackground element, which triggers the CSS to show the popup.
  */
-function afficherPopup() {
+function printPopup() {
   let popupBackground = document.querySelector(".popupBackground");
 
   popupBackground.classList.add("active");
 }
 
 /**
- * Cette fonction cache la popup pour partager son score.
+ * Hides the popup for sharing the score.
+ * It removes the "active" class from the popupBackground element, which triggers the CSS to hide the popup.
  */
 function cacherPopup() {
   let popupBackground = document.querySelector(".popupBackground");
@@ -26,19 +28,20 @@ function cacherPopup() {
 
 
 /**
- * Cette fonction initialise les écouteurs d'événements qui concernent
- * l'affichage de la popup.
+ * Initializes the event listeners for the popup.
+ * It sets up the click event listener on the share button to display the popup when clicked.
+ * It also sets up a click event listener on the popup background, so if the background is clicked, the popup will be hidden.
  */
 function initAddEventListenerPopup() {
   let shareBtn = document.querySelector(".shareArea button");
   let popupBackground = document.querySelector(".popupBackground");
   shareBtn.addEventListener("click", () => {
-    afficherPopup();
+    printPopup();
   });
 
   popupBackground.addEventListener("click", (event) => {
     if (event.target === popupBackground) {
       cacherPopup()
     }
-  })
+  });
 }

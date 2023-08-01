@@ -1,17 +1,33 @@
 /**
- * Autorise la touche "Entrer" comme moyen de validation
- * Si lors d'une validation le joueur a reussi une fois, bloque le menu des options
- * @param {Array.<string>} dictionary
- * @param {number} index
- * @param {number} length
+ * Enables the "Enter" key as a means of validation.
+ * If the player succeeds in a validation once, it locks the options menu.
  */
 function allowEnterKey() {
   guessArea.addEventListener("keydown", (e) => {
-    startTimer();
+    if (document.activeElement === guessArea) {
+      startTimer();
+    }
     if (e.key === "Enter" && dictionary[index] !== undefined) {
       handleValidateButton();
       if (index > 0)
         disableRadioList(radioList);
     }
   });
+}
+
+/**
+ * Listens for the "focusout" event on the guessArea element and calls the stopTimer function when the event occurs.
+ */
+function handleFocusOut() {
+  guessArea.addEventListener("focusout", () => {
+    stopTimer();
+  });
+}
+
+/**
+ * Activates the guessArea element by attaching event listeners for Enter key and focusout events.
+ */
+function activateGuessArea() {
+  allowEnterKey();
+  handleFocusOut();
 }

@@ -3,7 +3,7 @@ let timer = null;
 let isTimerStart = false;
 
 /**
- * Affiche le temps de la watch dans la zone du timer
+ * Displays the elapsed time in the timer area.
  */
 function displayTimer() {
   milliseconds += 10;
@@ -23,20 +23,18 @@ function displayTimer() {
 }
 
 /**
- * Démarre le timer et l'empêche de redémarrer
+ * Starts the timer and prevents it from restarting if already running.
  */
 function startTimer() {
   if (!isTimerStart) {
     timer = setInterval(displayTimer, 10);
-    guessArea.addEventListener("focus", (e) => {
-      if (timer != null) {
-        clearInterval(timer);
-      }
-    });
     isTimerStart = true;
   }
 }
 
+/**
+ * Resets the timer and updates the timer display to "00 : 00 : 000" format.
+ */
 function resetTimer() {
   clearInterval(timer);
   [milliseconds,seconds,minutes] = [0,0,0];
@@ -44,7 +42,7 @@ function resetTimer() {
 }
 
 /**
- * Arrete le timer
+ * Stops the timer by clearing the timer interval and setting the isTimerStart flag to false.
  */
 function stopTimer() {
     clearInterval(timer);

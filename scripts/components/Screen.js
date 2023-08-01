@@ -1,6 +1,6 @@
 /**
- * Affiche une chaine de caractere sur l'ecran
- * @param {string} word - Le mot entré par l'utilisteur
+ * Displays a string on the screen.
+ * @param {string} word - The word to be displayed on the screen.
  */
 function printScreen(word) {
   let wordToType = document.querySelector(".wordToTypeArea");
