@@ -42,7 +42,7 @@ function printErrorMessage(message) {
     errorMessageSpan = document.createElement("span");
     errorMessageSpan.id = "errorMessage";
 
-    popup.append(errorMessageSpan);
+    popup.append(/** @type {Node} */ errorMessageSpan);
   }
 
   errorMessageSpan.innerText = message;
@@ -54,16 +54,15 @@ function printErrorMessage(message) {
  * email, and time information. If any validation error occurs, it calls the "printErrorMessage" function to display the
  * error message in a popup.
  *
+ * @param {Event} event - The event object representing the "submit" event on the form.
  * @throws {Error} If there is an error during the form submission process, such as invalid name or email format.
  */
-function handleForm() {
+function handleForm(event) {
   try {
-    let nameTag = document.getElementById("name");
-    let name = nameTag.value;
+    let name = event.target.elements["name"].value;
     validateName(name);
 
-    let emailTag = document.getElementById("email");
-    let email = emailTag.value;
+    let email = event.target.elements["email"].value;
     validateEmail(email);
 
     let time = timerArea.innerHTML;
@@ -83,6 +82,6 @@ function activateForm() {
   let form = document.querySelector("form");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    handleForm();
+    handleForm(event);
   });
 }
